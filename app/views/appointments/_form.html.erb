@@ -1,0 +1,44 @@
+<%= form_for(@appointment) do |f| %>
+  <%= f.hidden_field :user_id, value: @user.id%>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Cliente:" %><br>
+    <b><%=@user.name_with_country%></b>
+  </div>
+  <div class="field">
+    <%= f.label :service_center %><br>
+    <%= f.collection_select(:service_center_id, @user.country.service_centers,:id, :name)%>
+  </div>
+  <div class="field">
+    <%= f.label :advisor %><br>
+    <%= f.collection_select(:advisor_id, @user.country.advisors,:id, :name)%>
+  </div>
+
+  <div class="field">
+    <%= f.label :vehicle %><br>
+    <%= f.collection_select(:vehicle_id, @user.vehicles,:id, :full_name)%>
+  </div>
+
+  <div class="field">
+    <%= f.label :appointment_type %><br>
+    <%= f.number_field :appointment_type %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.datetime_select :start_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

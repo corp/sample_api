@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Appointments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Service center</th>
+      <th>Advisor</th>
+      <th>Vehicle</th>
+      <th>Appointment type</th>
+      <th>Start date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.user.name_with_country %></td>
+        <td><%= appointment.service_center.name %></td>
+        <td><%= appointment.advisor.name %></td>
+        <td><%= appointment.vehicle.full_name %></td>
+        <td><%= appointment.appointment_type %></td>
+        <td><%= appointment.start_date %></td>
+        <td><%= link_to 'Show', appointment %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

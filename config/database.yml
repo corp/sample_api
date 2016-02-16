@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  host: localhost
+  database: sampleapi_dev
+  username: postgres
+  password: postgres
+
+test:
+  adapter: postgresql
+  host: localhost
+  database: sampleapi_test
+  username: postgres
+  password: postgres
