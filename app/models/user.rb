@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :country
   has_many :vehicles
+  has_many :appointments
 
   after_create :generate_auth_token
 

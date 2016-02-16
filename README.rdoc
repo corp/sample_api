@@ -3,7 +3,7 @@ SAMPLE API CALLS:
 
 1) Crear Sesion:
 
-curl -X POST -d "email=corp@icoms.co&password=corp&api_token=token-secreto" http://localhost:3000/api/sesiones.json
+curl -X POST -d "email=hugo@icoms.co&password=hugo" http://localhost:3000/api/sesiones.json
 
 
 2) Listar Vehiculos para usuario:

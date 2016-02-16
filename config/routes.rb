@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   namespace "api" do
   	resources "sesiones", controller: "sessions", only: [:create]
+  	resources "vehiculos", controller: "vehiculos", only: [:index]
+  	resources "citas", controller: "citas", only: [:index]
   end
 
 end
